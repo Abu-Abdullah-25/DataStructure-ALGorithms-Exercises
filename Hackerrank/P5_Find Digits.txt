@@ -1,0 +1,20 @@
+int findDigits(int n) {
+
+    int Counter = 0;
+    int tempNumber = n;
+
+    while (tempNumber > 0)
+    {
+        int Remindar = tempNumber % 10;
+        
+        //(Remindar != 0) -> avoid Zero -> avoid Error
+        if (Remindar != 0 && n % Remindar == 0)
+        {
+            Counter++;
+        }
+
+        tempNumber = tempNumber / 10;
+    }
+
+    return Counter;
+}

@@ -1,0 +1,14 @@
+    int finalValueAfterOperations(vector<string>& operations) {
+        
+        int X =0;
+        for(string &C: operations)
+        {
+            if((C == "++X" || C == "X++"))
+                X++;
+            
+            else if((C == "--X" || C == "X--"))
+                X--;
+        }
+
+        return X;
+    }

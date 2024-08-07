@@ -1,0 +1,31 @@
+class Solution {
+private:
+    bool _IsCharInWord(char Ch1 , string Word)
+    {
+        for(int i = 0; i <= Word.length() / 2; i++)
+        {
+            if(Word[i] == Ch1)
+                return true;
+
+            if(Word[Word.length() - i - 1] == Ch1)
+                return true;
+        }
+
+        return false;
+    }
+
+
+public:
+    vector<int> findWordsContaining(vector<string>& words, char x) {
+
+        vector<int> vIndices;
+
+        for(int i = 0; i < words.size(); i++)
+        {
+            if(_IsCharInWord(x,words[i]))
+                vIndices.push_back(i);
+        }
+
+        return vIndices;
+    }
+};

@@ -1,0 +1,35 @@
+long SumAllVectorNumbersExceptSpecificedIndex(vector<int> arr, short Index)
+{
+    long Sum = 0;
+    
+    for (short i = 0; i < arr.size(); i++)
+    {
+        if (i != Index)
+            Sum += arr[i];
+    }
+
+    return Sum;
+}
+
+void miniMaxSum(vector<int> arr) {
+
+    long Sum, minSum, maxSum;
+
+    Sum = 0; 
+    maxSum = 0; 
+    minSum = SumAllVectorNumbersExceptSpecificedIndex(arr, 0);
+
+    for (short i = 0; i < arr.size(); i++)
+    {
+        Sum = SumAllVectorNumbersExceptSpecificedIndex(arr, i);
+
+        if (minSum > Sum)
+            minSum = Sum;
+
+        if (maxSum < Sum)
+            maxSum = Sum;     
+    }
+
+    cout <<minSum << " " << maxSum;
+}
+in

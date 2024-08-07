@@ -1,0 +1,23 @@
+class Solution {
+private:
+void _Swap(int & Number1, int & Number2)
+{
+    int Temp = Number2;
+    Number2 = Number1;
+    Number1 = Temp;
+}
+
+public:
+    void moveZeroes(vector<int>& nums) {
+        
+        int i =0;
+        for(int j = 0; j < nums.size(); j++)
+        {
+            if(nums[j] != 0)
+            {
+                _Swap(nums[i],nums[j]);
+                i++;
+            }
+        }
+    }
+};

@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+short ReadNumber(string Message)
+{
+    short n = 0;
+    do
+    {
+        cout << Message;
+        cin >> n;
+    } while (n <= 0);
+    return n;
+}
+
+bool isPerfect(short n)
+{
+    short s = 0;
+    for (int i = 1; i < n; i++)
+    {
+        if (n % i == 0)
+            s = s + i;
+    }
+    return n == s;
+}
+
+void PrintResult(short n)
+{
+    cout << "perfect numbers from 1 to " << n << " are :" << endl;
+    for (int i = 1; i <= n; i++)
+    {
+        if (isPerfect(i))
+        {
+            cout << i << endl;
+        }
+    }
+}
+
+int main()
+{
+    PrintResult(ReadNumber("Please enter a positive number: "));
+    return 0;
+}

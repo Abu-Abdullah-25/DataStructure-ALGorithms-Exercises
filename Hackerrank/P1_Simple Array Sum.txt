@@ -1,0 +1,7 @@
+int simpleArraySum(vector<int> ar) {
+
+    int Sum = 0;
+    for(short i =0; i<ar.size(); i++)
+        Sum += ar[i];
+    return Sum;
+}

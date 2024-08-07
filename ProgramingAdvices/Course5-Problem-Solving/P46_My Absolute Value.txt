@@ -1,0 +1,40 @@
+// ExercisesCourse5.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float ReadNumber()
+{
+    float Number = 0;
+    cout << "Please enter number\n";
+    cin >> Number;
+
+    return Number;
+}
+
+float MyABS(float Number)
+{
+    if (Number > 0)
+        return Number;
+    else
+        return Number * -1;
+}
+
+ int main() 
+ {
+
+     int Number = ReadNumber();
+
+     cout << "My abs Result is : " << MyABS(Number)<<"\n";
+
+     cout << "C++ abs result is : " << abs(Number) << "\n";
+
+
+     return 0;
+ }
+
+
+
+

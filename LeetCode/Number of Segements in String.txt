@@ -1,0 +1,18 @@
+class Solution {
+public:
+    int countSegments(string s) {
+        int Counter = 0;
+        bool isFound = true;
+        for(short i = 0; i < s.length(); i++)
+        {
+            if(s[i] != ' ' && isFound)
+            {
+                Counter ++;
+            }
+
+            isFound = (s[i] == ' ') ? true : false;
+        }
+
+        return Counter;
+    }
+};

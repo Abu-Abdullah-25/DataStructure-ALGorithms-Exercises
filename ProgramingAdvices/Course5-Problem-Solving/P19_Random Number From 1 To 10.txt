@@ -1,0 +1,24 @@
+#include<iostream>
+#include<string>
+#include<cstdlib>
+using namespace std;
+
+int RandomNumber(int from, int To)
+{
+    // Function to generate a random number
+    int Randum = rand() % (To - from + 1) + from;
+    return Randum;
+}
+
+int main() 
+{
+    // Seed the random number generator in C++, called only once
+    srand((unsigned)time(NULL));
+
+    // Generate and print three random numbers between 1 and 5
+    cout << RandomNumber(1, 5) << endl;
+    cout << RandomNumber(1, 5) << endl;
+    cout << RandomNumber(1, 5) << endl;
+
+    return 0;
+}

@@ -1,0 +1,61 @@
+// ExercisesCourse5.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float ReadNumber()
+{
+    float Number = 0;
+    cout << "Please enter number\n";
+    cin >> Number;
+
+    return Number;
+}
+
+float GetFractionPart(float Number)
+{
+    return Number - int(Number);
+}
+
+int MyCeil(float Number)
+{
+    if (abs(GetFractionPart(Number)) > 0)
+
+        if (Number > 0)
+
+            return int(Number) + 1;
+
+        else
+
+            return int(Number);
+
+    else
+        return Number;
+}
+
+
+int MySqrt(int Number) //25
+{
+    return pow(Number, 0.5);
+}
+
+
+ int main() 
+ {
+
+     float Number = ReadNumber();
+
+
+     cout << "My MySqrt Result is : " << MySqrt(Number)<<"\n";
+
+     cout << "C++ sqrt result is : " << sqrt(Number) << "\n";
+
+
+     return 0;
+ }
+
+
+
+

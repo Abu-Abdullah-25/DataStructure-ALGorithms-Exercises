@@ -1,0 +1,26 @@
+void plusMinus(vector<int> arr) {
+    
+    short PosCount = 0; 
+    short NegCount = 0;
+    short ZeroCount = 0;
+
+    for(short i = 0; i < arr.size(); i++)
+    {
+        if(arr[i] > 0)
+            PosCount++;
+        else if(arr[i] < 0)
+            NegCount++;
+        else
+            ZeroCount++;
+    }
+    
+    // Calculate ratios
+    double positiveRatio = static_cast<double>(PosCount) / arr.size();
+    double negativeRatio = static_cast<double>(NegCount) / arr.size();
+    double zeroRatio = static_cast<double>(ZeroCount) / arr.size();
+    
+    // Print the ratios
+    cout << positiveRatio << endl;
+    cout << negativeRatio << endl;
+    cout << zeroRatio << endl;
+}

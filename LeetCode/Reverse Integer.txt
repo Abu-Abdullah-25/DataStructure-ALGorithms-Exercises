@@ -1,0 +1,16 @@
+    int reverse(int x) {
+        long Result = 0;
+        int n2 = abs(x);
+        
+        while (n2 > 0) {
+            int Digit = n2 % 10;
+            Result = Result * 10 + Digit;
+            n2 = n2 / 10;
+        }
+
+        if (Result < INT_MIN || Result > INT_MAX) {
+            return 0;
+        }
+
+        return (x < 0) ? Result * -1 : Result;
+    }

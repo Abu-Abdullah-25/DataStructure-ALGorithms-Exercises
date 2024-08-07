@@ -1,0 +1,59 @@
+// ExercisesCourse5.cpp : This file contains the 'main' function. Program execution begins and ends there.
+//
+
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+float ReadNumber()
+{
+    float Number = 0;
+    cout << "Please enter number\n";
+    cin >> Number;
+
+    return Number;
+}
+
+float GetFractionPart(int Number)
+{
+
+    return Number - int(Number);
+}
+
+int MyRound(float Number)
+{
+    int intPart;
+    intPart = int(Number);
+
+    float FractionsPart = GetFractionPart(Number);
+
+    if (abs(FractionsPart) >= .5)
+    {
+        if (Number > 0)
+
+            return ++intPart;
+        else
+            return --intPart;
+    }
+
+    else
+        return intPart;
+
+}
+
+ int main() 
+ {
+
+     float Number = ReadNumber();
+
+     cout << "My round Result is : " << MyRound(Number)<<"\n";
+
+     cout << "C++ round result is : " << round(Number) << "\n";
+
+
+     return 0;
+ }
+
+
+
+

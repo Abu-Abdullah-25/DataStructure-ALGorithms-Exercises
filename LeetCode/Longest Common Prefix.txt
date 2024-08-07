@@ -1,0 +1,32 @@
+class Solution {
+
+private:
+    bool _IsMatchChar(char c , int TargetIndex , vector<string>& strs)
+    {
+        for(int i = 1; i < strs.size(); i++)
+        {
+            if(TargetIndex >= strs[i].length() || c != strs[i][TargetIndex])
+                return false;
+        }
+
+        return true;
+    }
+
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+
+        if(strs.size()==1){
+            return strs[0];
+        }
+        
+        string Prefix = "";
+        int TargetIndex = 0;
+        
+        while (_IsMatchChar(strs[0][TargetIndex], TargetIndex, strs)) {
+            Prefix += strs[0][TargetIndex];
+            TargetIndex++;
+        }
+        
+        return Prefix;
+    }
+};

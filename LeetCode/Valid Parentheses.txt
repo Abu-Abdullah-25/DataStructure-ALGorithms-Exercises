@@ -1,0 +1,41 @@
+#include <stack>
+
+class Solution {
+
+private:
+    static bool isOpeningParenthesis(char c) {
+        return c == '(' || c == '{' || c == '[';
+    }
+
+    static char getReverseParenthesis(char par) {
+        if (par == '(')
+            return ')';
+        if (par == '[')
+            return ']';
+        if (par == '{')
+            return '}';
+        return '\0'; // Return null character for invalid input
+    }
+
+public:
+    bool isValid(string s)
+    {
+        stack<char> myStack;
+
+        for (char c : s) {
+
+            if (isOpeningParenthesis(c)) {
+                myStack.push(c);
+            } 
+            
+            else {
+                if (myStack.empty() || c != getReverseParenthesis(myStack.top())) {
+                    return false;
+                }
+                myStack.pop();
+            }
+        }
+
+        return myStack.empty();
+    }
+};

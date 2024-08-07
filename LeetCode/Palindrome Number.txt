@@ -1,0 +1,27 @@
+class Solution {
+
+private:
+    long _ReverseNumber(int Number)
+    {
+        long ReversedNumber = 0;
+        int Digit = 0;
+        while(Number > 0)
+        {
+            Digit = Number % 10;
+            Number = Number / 10;
+            ReversedNumber = ReversedNumber * 10 + Digit;
+        }
+
+        return ReversedNumber;
+    }
+
+public:
+    bool isPalindrome(int x) 
+    {
+        if (x < 0 || (x % 10 == 0 && x != 0))
+            return false;
+
+        return (_ReverseNumber(x) == x);
+        
+    }
+};

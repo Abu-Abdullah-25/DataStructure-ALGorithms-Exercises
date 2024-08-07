@@ -1,0 +1,29 @@
+void reverseString(string &S1)
+    {
+        int Temp;
+        for (int i = 0; i < S1.length() / 2; i++)
+        {
+            Temp = S1[i];
+            S1[i] = S1[S1.length() - i - 1];
+            S1[S1.length() - i - 1] = Temp;
+        }
+    }
+    string reversePrefix(string word, char ch) {
+
+        string reversedWord = "";
+        bool isFirst = true;
+        for (char &C : word)
+        {
+            if (isFirst == true && C == ch)
+            {
+                reversedWord += C;
+                reverseString(reversedWord);
+                isFirst = false;
+            }
+
+            else
+                reversedWord += C;
+        }
+
+        return reversedWord;
+    }

@@ -1,0 +1,15 @@
+string hackerrankInString(const string& s) {
+    const string targetString = "hackerrank";
+    int targetIndex = 0;
+
+    for (char c : s) {
+        if (c == targetString[targetIndex]) {
+            targetIndex++;
+            if (targetIndex == targetString.length()) {
+                return "YES";
+            }
+        }
+    }
+
+    return "NO";
+}

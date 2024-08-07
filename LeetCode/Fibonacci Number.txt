@@ -1,0 +1,18 @@
+    int fib(int n) {
+        
+        if(n <= 1)
+            return n;
+
+        int Prev1 = 1;
+        int Prev2 = 0;
+        int FebNumber =0;
+
+        for(int i= 2; i <= n; i++)
+        {
+            FebNumber = Prev1 + Prev2;
+            Prev2 = Prev1;
+            Prev1 = FebNumber;
+        }
+
+        return Prev1;
+    }

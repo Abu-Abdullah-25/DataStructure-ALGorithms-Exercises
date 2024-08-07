@@ -1,0 +1,22 @@
+
+    int firstBadVersion(int n) {
+        
+        int Left = 0;
+        int Right =n;
+        int Mid = 0;
+        int Result = n;
+      
+        while(Left <= Right)
+        {
+            Mid = Left + (Right - Left) /2;
+            if(isBadVersion(Mid))
+            {
+                Result = Mid;
+                Right = Mid - 1;
+            }
+            else
+                Left = Mid + 1;
+        }
+
+        return Result;
+    }

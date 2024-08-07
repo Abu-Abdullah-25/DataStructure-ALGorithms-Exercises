@@ -1,0 +1,81 @@
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <vector>
+#include <fstream>
+using namespace std;
+
+// Problem #37
+vector<string> SplitString(string S9, string Delim)
+{
+    vector<string> vString;
+    short pos = 0;
+    string sWord; // define a string variable
+    
+    // use find() function to get the position of the delimiters
+    while ((pos = S9.find(Delim)) != std::string::npos)
+    {
+        sWord = S9.substr(0, pos);
+        if (sWord != "")
+        {
+            vString.push_back(sWord);
+        }
+        S9.erase(0, pos + Delim.length()); // erase() until position and move to next word
+    }
+    
+    // Print the last word from the string
+    if (S9 != "")
+    {
+        vString.push_back(S9);
+    }
+    
+    return vString;
+}
+
+// Function to update client by account number
+bool UpdateClientByAccountNumber(string AccountNumber, vector<stClinet>& vClients)
+{
+    stClinet Client;
+    char Answer = 'n';
+    
+    if (FindClientByAccountNumber(AccountNumber, vClients, Client))
+    {
+        PrintClinetRecord(Client);
+        cout << "\n\nAre you sure you want to update the client? (y/n): ";
+        cin >> Answer;
+        
+        if (Answer == 'y' || Answer == 'Y')
+        {
+            for (stClinet& C : vClients)
+            {
+                if (C.AccountNumber == AccountNumber)
+                {
+                    C = ChangeClientRecord(AccountNumber);
+                    break;
+                }
+            }
+            
+            SaveClientsDataToFile(ClientsFileName, vClients);
+            
+            // Refresh Clients
+            vClients = LoadClientsDataFromFile(ClientsFileName);
+            
+            cout << "\n\nClient Updated Successfully.\n";
+            return true;
+        }
+    }
+    else
+    {
+        cout << "\nClient with Account Number (" << AccountNumber << ") was not found!\n";
+        return false;
+    }
+}
+
+int main()
+{
+    // Problem #51
+    vector<stClinet> vClients = LoadClientsDataFromFile(ClientsFileName);
+    string AccountNumber = ReadClientAccountNumber();
+    UpdateClientByAccountNumber(AccountNumber, vClients);
+    system("pause>0");
+}

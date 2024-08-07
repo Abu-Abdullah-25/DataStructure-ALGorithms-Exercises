@@ -1,0 +1,18 @@
+bool detectCapitalUse(string word) {
+    int capitalCount = 0;
+    for (char c : word) {
+        if (c >= 'A' && c <= 'Z') {
+            capitalCount++;
+        }
+    }
+    
+    if (capitalCount == word.length() || capitalCount == 0) {
+        return true;
+    }
+    
+    if (capitalCount == 1 && word[0] >= 'A' && word[0] <= 'Z') {
+        return true;
+    }
+    
+    return false;
+}

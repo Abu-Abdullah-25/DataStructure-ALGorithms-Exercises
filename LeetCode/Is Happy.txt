@@ -1,0 +1,28 @@
+class Solution {
+private:
+    int _digitSquareSum(int n) {
+        int sum = 0;
+
+        while (n > 0) {
+            int digit = n % 10;
+            sum += digit * digit;
+            n /= 10;
+        }
+
+        return sum;
+    }
+
+
+public:
+
+bool isHappy(int n) {
+    set<int> visited;
+
+    while (n != 1 && visited.find(n) == visited.end()) {
+        visited.insert(n);
+        n = _digitSquareSum(n);
+    }
+
+    return n == 1;
+}
+};

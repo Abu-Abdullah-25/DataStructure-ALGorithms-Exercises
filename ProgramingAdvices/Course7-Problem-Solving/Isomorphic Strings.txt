@@ -1,0 +1,26 @@
+
+    bool isIsomorphic(string s, string t) {
+
+    if (s.length() != t.length()) {
+        return false;
+    }
+
+    unordered_map<char, char> s_to_t_mapping; //{e:a,g:d,}
+
+    for (int i = 0; i < s.length(); ++i) {
+        char char_s = s[i];
+        char char_t = t[i];
+
+        if (s_to_t_mapping.find(char_s) == s_to_t_mapping.end()) {
+            // If s[i] is not mapped yet, map it to t[i]
+            s_to_t_mapping[char_s] = char_t;
+        } else {
+            // If s[i] is already mapped, check if it's mapped to t[i]
+            if (s_to_t_mapping[char_s] != char_t) {
+                return false;
+            }
+        }
+    }
+
+         return true;
+    }

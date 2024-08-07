@@ -1,0 +1,34 @@
+vector<int> asteroidCollision(vector<int>& asteroids) {
+    // {5 , 10 ,-5}
+    stack<int> stkAsteroids;
+    for (int& asteroid : asteroids)
+    {
+        if (asteroid > 0)
+            stkAsteroids.push(asteroid);
+        else
+        {
+            while (!stkAsteroids.empty() && stkAsteroids.top() > 0 && stkAsteroids.top() < -asteroid)
+            {
+                stkAsteroids.pop();
+            }
+
+            if (stkAsteroids.empty() || stkAsteroids.top() < 0)
+                stkAsteroids.push(asteroid);
+
+            else if (stkAsteroids.top() == -asteroid)
+                stkAsteroids.pop();
+        }
+    }
+
+    vector<int> vResult(stkAsteroids.size());
+    int Index = vResult.size() - 1;
+
+    while (!stkAsteroids.empty())
+    {
+        vResult[Index] = stkAsteroids.top();
+        stkAsteroids.pop();
+        Index--;
+    }
+
+    return vResult;
+    }

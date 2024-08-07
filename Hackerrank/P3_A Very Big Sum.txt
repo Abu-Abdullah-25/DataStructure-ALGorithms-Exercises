@@ -1,0 +1,14 @@
+long aVeryBigSum(vector<long>& ar) {
+    long sum = 0;
+    int size = ar.size();
+
+    for (int i = 0; i < size / 2; i++) {
+        sum += ar[i] + ar[size - i - 1];
+    }
+
+    if (size % 2 == 1) {
+        sum += ar[size / 2];
+    }
+
+    return sum;
+}

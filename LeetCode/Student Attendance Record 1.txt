@@ -1,0 +1,31 @@
+class Solution {
+public:
+    bool checkRecord(string s) {
+        
+        int AbsentCount = 0;
+        int LateCount = 0;
+
+        for(char & C :s)
+        {
+            if(C == 'A')
+            {
+                AbsentCount++;
+                LateCount = 0;
+            }
+
+            else if(C == 'L')
+            {
+                LateCount++;
+            }
+            else
+            {
+                LateCount = 0;
+            }
+
+            if(AbsentCount >= 2 || LateCount >= 3)
+                return false;
+        }
+
+        return true;
+    }
+};

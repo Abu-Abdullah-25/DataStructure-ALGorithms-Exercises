@@ -1,0 +1,12 @@
+long SumAllVectorNumbersExceptSpecificedIndex(vector<int> arr, short Index)
+{
+    long Sum = 0;
+    
+    for (short i = 0; i < arr.size(); i++)
+    {
+        if (i != Index)
+            Sum += arr[i];
+    }
+
+    return Sum;
+}

@@ -1,0 +1,48 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <cmath>
+using namespace std;
+
+void FillArray(int arr[100], int& arrLength) {
+    arrLength = 6;
+    arr[0] = 10;
+    arr[1] = 20;
+    arr[2] = 30;
+    arr[3] = 30;
+    arr[4] = 20;
+    arr[5] = 10;
+}
+
+void PrintArray(int arr[100], int arrLength) {
+    for (int i = 0; i < arrLength; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+bool IsPalindrome(int arr[100], int length) {
+    for (int i = 0; i < length; i++) {
+        if (arr[i] != arr[length - 1 - i]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+int main() {
+    int arr[100];
+    int arrLength;
+    FillArray(arr, arrLength);
+
+    cout << "\nArray Elements: " << endl;
+    PrintArray(arr, arrLength);
+
+    if (IsPalindrome(arr, arrLength)) {
+        cout << "\nYes, the array is a palindrome." << endl;
+    } else {
+        cout << "\nNo, it's not a palindrome array." << endl;
+    }
+
+    return 0;
+}

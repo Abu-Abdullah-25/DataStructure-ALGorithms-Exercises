@@ -1,0 +1,70 @@
+#include<iostream>
+#include<string>
+#include <cmath>
+#include <iomanip>
+#include <cstdlib>
+using namespace std;
+
+int ReadNumber(string message) {
+    int n = 0;
+    do {
+        cout << message;
+        cin >> n;
+    } while (n <= 0);
+    return n;
+}
+
+int Random(int from, int to) {
+    int random = rand() % (from - to + 1) + 1;
+    return random;
+}
+
+void fillArrayWithRandomNumber(int arr[100], int& arrlength) {
+    cout << "Please enter the number of elements in the array: ";
+    cin >> arrlength;
+
+    for (int i = 0; i < arrlength; i++) {
+        arr[i] = Random(1, 100);
+    }
+}
+
+short FindNumberPositionInArray(int Number, int arr[100], int arrLength) {
+    /* This function will search for a number in the array and return its index,
+    or return -1 if it does not exist */
+    for (int i = 0; i < arrLength; i++) {
+        if (arr[i] == Number)
+            return i; // return the index if the number is found
+    }
+    // If you reached here, it means the number is not found
+    return -1;
+}
+
+void PrintArray(int arr[100], int arrlength) {
+    for (int i = 0; i < arrlength; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    srand((unsigned)time(NULL));
+    int arr[100], arrlength;
+    fillArrayWithRandomNumber(arr, arrlength);
+
+    cout << "Array elements: ";
+    PrintArray(arr, arrlength);
+
+    int number = ReadNumber("Please enter the number you want to search for: ");
+    cout << "The number you are looking for is: " << number << endl;
+
+    short NumberPosition = FindNumberPositionInArray(number, arr, arrlength);
+
+    if (NumberPosition == -1) {
+        cout << "The number is not found :-(\n";
+    } else {
+        cout << "The number is found at position: " << NumberPosition << endl;
+        cout << "The number's order is: " << NumberPosition + 1 << endl;
+    }
+
+    return 0;
+}

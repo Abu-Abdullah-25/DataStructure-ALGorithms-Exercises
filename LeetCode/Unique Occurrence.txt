@@ -1,0 +1,21 @@
+class Solution {
+public:
+    bool uniqueOccurrences(vector<int>& arr) 
+    {
+        map<int,int> countMap;
+
+        for(int & n :arr)
+        {
+            countMap[n]++;
+        }
+
+        set<int> occurrenceSet;
+        for(const auto& pair:countMap)
+        {
+            if(!occurrenceSet.insert(pair.second).second)
+                return false;
+        }
+
+        return true;
+    }
+};

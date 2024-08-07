@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+
+void PrintTableHeader(int Number) {
+    cout << "\n\n\t\t\t Multiplication Table From 1 to " << Number << "\n\n";
+    cout << "\t";
+    for (int i = 1; i <= Number; i++) {
+        cout << i << "\t";
+    }
+    cout << "\n________________________________________________________________________________\n";
+}
+
+string ColumnSeparator(int i) {
+    if (i < 10)
+        return " |";
+    else
+        return " |";
+}
+
+void PrintMultiplicationTable(int Number) {
+    PrintTableHeader(Number);
+    for (int i = 1; i <= Number; i++) {
+        cout << " " << i << ColumnSeparator(i) << "\t";
+        for (int j = 1; j <= Number; j++) {
+            cout << i * j << "\t";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    int number;
+    do {
+        cout << "Please enter a positive number: ";
+        cin >> number;
+    } while (number <= 0);
+    
+    PrintMultiplicationTable(number);
+    
+    return 0;
+}

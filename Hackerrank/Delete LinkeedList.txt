@@ -1,0 +1,33 @@
+SinglyLinkedListNode* deleteNode(SinglyLinkedListNode* llist, int position) {
+    // If the list is empty, return nullptr
+    if (llist == nullptr) {
+        return nullptr;
+    }
+
+    // If the node to be deleted is the head node, update the head pointer
+    if (position == 0) {
+        SinglyLinkedListNode* temp = llist;
+        llist = llist->next;
+        delete temp;
+        return llist;
+    }
+
+    // Traverse to the node before the one to be deleted
+    SinglyLinkedListNode* current = llist;
+    for (int i = 0; i < position - 1; i++) {
+        current = current->next;
+        // If the position is out of bounds, return the original list
+        if (current == nullptr) {
+            return llist;
+        }
+    }
+
+    // Update pointers to bypass the node to be deleted
+    SinglyLinkedListNode* nodeToDelete = current->next;
+    current->next = nodeToDelete->next;
+
+    // Delete the node
+    delete nodeToDelete;
+
+    return llist;
+}
